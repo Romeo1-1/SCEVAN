@@ -1073,7 +1073,7 @@ plotOncoHeat <- function(oncoHeat, nSub, samp, annotdf, mycolors, organism = "hu
     oncoHeat <- oncoHeat[,order(ch,start)]
   }
   
-  png(paste("./output/",samp,"OncoHeat2.png",sep=""), height=2350, width=1050, res=150)
+  png(paste("./output/",samp,"OncoHeat2.png",sep=""), height=2350, width=1050, res=300)
   pp <- pheatmap::pheatmap(t(oncoHeat), color = legendColors, cluster_rows = FALSE, cluster_cols = FALSE, annotation_col = annotdf, annotation_colors = mycolors, legend_breaks = legendBreaks, legend_labels = legendLabels,cellwidth = 30, annotation_legend = TRUE, fontsize = 14, labels_col = rep("",nrow(oncoHeat)))  
   h = grid::convertHeight(sum(pp$gtable$heights), "in", TRUE)
   w = grid::convertWidth(sum(pp$gtable$widths), "in", TRUE)
@@ -1104,7 +1104,7 @@ plotOncoHeatSubclones <- function(oncoHeat, nSub, samp, perc_subclones, organism
 plotOncoHeat2 <- function(oncoHeat, nSub, samp, annotdf, mycolors){
   oncoHeat <- oncoHeat[,order(as.numeric(substr(colnames(oncoHeat), 1,2)),decreasing = FALSE)]
   
-  png(paste("./output/",samp,"OncoHeat2.png",sep=""), height=2250, width=1450, res=150)
+  png(paste("./output/",samp,"OncoHeat2.png",sep=""), height=2250, width=1450, res=300)
   pp <- pheatmap::pheatmap(t(oncoHeat), color = c("blue","white","red"), cluster_rows = FALSE, cluster_cols = FALSE, annotation_col = annotdf, annotation_colors = mycolors, legend_breaks = c(1,0,-1), legend_labels = c("AMP","","DEL"),cellwidth = 30, annotation_legend = TRUE, fontsize = 14, labels_col = rep("",nrow(oncoHeat)))  
   h = grid::convertHeight(sum(pp$gtable$heights), "in", TRUE)
   w = grid::convertWidth(sum(pp$gtable$widths), "in", TRUE)
