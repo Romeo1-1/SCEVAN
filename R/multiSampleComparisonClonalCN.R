@@ -15,7 +15,7 @@ plotAllSubclonalCN <- function(sample, pathOutput = "./output/"){
 
   CNVtot <- lapply(allFile, function(i) read.table(paste0(pathOutput,i), sep="\t", header=TRUE, as.is=TRUE))
   
-  png(paste0(pathOutput,sample,"_compareSubclonalCN.png",sep=""), height=2250, width=1350, res=100)
+  png(paste0(pathOutput,sample,"_compareSubclonalCN.png",sep=""), height=1500, width=1350, res=300)
   
   par(mfrow=c(length(allFile),1),cex=1, cex.main = 1.5, cex.lab = 1.5,xaxs="i")
   
@@ -35,7 +35,7 @@ plotAllClonalCN <- function(samples, name){
   #CNVtot <- lapply(samples, function(i) read.table(paste0("./output/"," ",i," _  _CN.seg"), sep="\t", header=TRUE, as.is=TRUE))
   CNVtot <- lapply(samples, function(i) read.table(paste0("./output/",i,"_Clonal_CN.seg"), sep="\t", header=TRUE, as.is=TRUE))
   
-  png(paste0("./output/",name,"_compareClonalCN.png",sep=""), height=2250, width=1350, res=200)
+  png(paste0("./output/",name,"_compareClonalCN.png",sep=""), height=1500, width=1350, res=300)
   
   par(mfrow=c(length(samples),1),cex=1, cex.main = 1.5, cex.lab = 1.5,xaxs="i")
   
